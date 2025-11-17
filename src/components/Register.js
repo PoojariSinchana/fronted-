@@ -12,7 +12,7 @@ export default function Register() {
   async function submit(e) {
     e.preventDefault();
     try {
-      const res = await API.post('/auth/register', form);
+      const res = await API.post('/auth/register', form);;
       login(res.data);
       toast.success('Registered');
       nav('/');

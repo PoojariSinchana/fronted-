@@ -1,9 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API = axios.create({ baseURL: process.env.REACT_APP_API || "https://code-snippet-manager-1-ua7r.onrender.com" });
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API || "http://localhost:5000/api"
+});
 
 API.interceptors.request.use(config => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
